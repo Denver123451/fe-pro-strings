@@ -7,9 +7,8 @@
 export const replaceZAndVFromString = (string) => {
     let resoultWord = ''
      for(let letter of string) {
-        if (letter === 'v' ||  letter === 'z' || letter === 'V' ||  letter === 'Z' ) {
-            letter = '*';
-            resoultWord = `${resoultWord}${letter}`
+        if (letter.toLowerCase() === 'z' || letter.toLowerCase() === 'v' ) {
+            resoultWord = `${resoultWord}*`
         }
         else {resoultWord = `${resoultWord}${letter}`}
      }
@@ -30,9 +29,9 @@ export const replaceZAndVFromString = (string) => {
  */
 export const changeWord = (string, word, newWord) => {
     const firstInd = string.indexOf(word);
-    const secondIndex = firstInd + word.length
-    const firstHalfOfSentence = string.slice(0, firstInd)
-    const secondHalfOfSentence = string.slice(secondIndex)
+    const secondIndex = firstInd + word.length;
+    const firstHalfOfSentence = string.slice(0, firstInd);
+    const secondHalfOfSentence = string.slice(secondIndex);
     return `${firstHalfOfSentence}${newWord}${secondHalfOfSentence}`
  };
 
@@ -62,9 +61,9 @@ export const quantityOfSymbols = (string, symbol) => {
     const lowerCaseString = string.toLowerCase()
     for(let i = 0; i < lowerCaseString.length ; i++) {
         if (lowerCaseString[i] === symbol.toLowerCase()){
-            counter++
+            counter++;
         }
-    }
+    };
     return counter;
 };
 
@@ -93,7 +92,7 @@ export const quantityOfSymbolsWithIndexOf = (string, symbol) => {
         let foundPos = lowerCaseString.indexOf(lowerCaseSymbol, position);
         if (foundPos === -1) break
         position = foundPos +1;
-        counter++
+        counter++;
     }
     return counter;
 };
